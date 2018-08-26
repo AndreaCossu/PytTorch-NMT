@@ -18,7 +18,6 @@ parser.add_argument('--maxlength', type=int, default=70)
 parser.add_argument('--layers', type=int, default=2)
 parser.add_argument('--hiddensize', type=int, default=500)
 parser.add_argument('--cuda', action="store_true")
-parser.add_argument('--europarl', action="store_true")
 parser.add_argument('--load', action="store_true")
 args = parser.parse_args()
 
@@ -38,12 +37,8 @@ n_epochs = args.epochs
 plot_every = 1000
 print_every = 1000
 
-# Choice of dataset
-if args.europarl:
-    dataset = 'europarl-v7'
-else:
-    dataset = 'anki-tatoeba'
-print('Using dataset ', dataset)
+
+dataset = 'anki-tatoeba'
 
 # Choice of computing device
 if args.cuda:
